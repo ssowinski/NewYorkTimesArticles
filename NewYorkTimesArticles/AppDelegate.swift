@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow()
-        let viewModel = ArticlesListViewModel(articleProvider: FakeArticleProvider())
+        let articleProvider = ArticleProvider(requestBuilder: NewYorkTimesRequestBuilder(), responseSerializer: SimpleResponseSerializer())
+        let viewModel = ArticlesListViewModel(articleProvider: articleProvider)
         let viewController = ArticleListViewController(viewModel: viewModel)
         window?.rootViewController = UINavigationController(rootViewController: viewController)
         
