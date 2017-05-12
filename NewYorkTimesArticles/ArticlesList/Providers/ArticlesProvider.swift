@@ -12,6 +12,42 @@ protocol ArticleProviding {
     func fetchArticles(completionHandler: @escaping (Result<[Article]>) -> ())
 }
 
+class ArticleProvider: ArticleProviding {
+    
+    private let requestBuilder: RequestBuilderType
+    private let responseSerializer: ResponseSerializerType
+    
+    init(requestBuilder: RequestBuilderType, responseSerializer: ResponseSerializerType) {
+        self.requestBuilder = requestBuilder
+        self.responseSerializer = responseSerializer
+    }
+    
+    func fetchArticles(completionHandler: @escaping (Result<[Article]>) -> ()) {
+        
+        let requestTarget = NewYorkTimesRequestTarget.getArticles(query: "kubica", sort: SortType.newest)
+        
+        requestBuilder.startRequest(requestTarget: requestTarget) {[weak self] (response, data, error) in
+            
+            //            print("response: \(String(describing: response))")
+            //            let ncodeResoponseData = String(data: data ?? Data(), encoding: .utf8) ?? ""
+            //            print("data: \(ncodeResoponseData)")
+            //            print("error: \(String(describing: error))")
+            
+            if let data = data {
+                let fetchedArticle: [Article] = self?.responseSerializer.getObjectsColection(fromData: data, forPath: "response/docs") ?? []
+                DispatchQueue.main.async {
+                    completionHandler(.success(fetchedArticle))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(.success([]))
+                }
+            }
+        }
+
+    }
+}
+
 class FakeArticleProvider: ArticleProviding {
     
     func fetchArticles(completionHandler: @escaping (Result<[Article]>) -> ()) {
@@ -24,6 +60,4 @@ class FakeArticleProvider: ArticleProviding {
             completionHandler(.success(articles))
         }
     }
-    
-    
 }
