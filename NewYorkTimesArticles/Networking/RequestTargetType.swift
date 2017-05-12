@@ -23,7 +23,7 @@ enum ParameterEncoding {
 protocol RequestTargetType {
     var URLString: String { get }
     var method: HTTPMethod { get }
-    var parameters: Parameters? { get }
     var headers: Headers? { get }
+    var parameters: Parameters? { get }
     var parameterEncoding: ParameterEncoding { get }
 }

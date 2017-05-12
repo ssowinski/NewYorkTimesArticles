@@ -1,21 +1,28 @@
 //
-//  RequestTarget.swift
-//  TwitterClient
+//  NewYorkTimesRequestTarget.swift
+//  NewYorkTimesArticles
 //
-//  Created by Sławomir Sowiński on 08.05.2017.
+//  Created by Sławomir Sowiński on 12.05.2017.
 //  Copyright © 2017 Sławomir Sowiński. All rights reserved.
 //
 
 import Foundation
 
-enum RequestTarget {
-    case getArticles(query: String?)
+import Foundation
+
+enum SortType: String {
+    case oldest = "oldest"
+    case newest = "newest"
 }
 
-extension RequestTarget: RequestTargetType {
+enum NewYorkTimesRequestTarget {
+    case getArticles(query: String?, sort: SortType)
+}
+
+extension NewYorkTimesRequestTarget: RequestTargetType {
     
     private var apiKey: String {
-        return "your-api-key"
+        return "YOUR-API-KEY"
     }
     
     private var baseUrl: String {
@@ -40,18 +47,19 @@ extension RequestTarget: RequestTargetType {
         }
     }
     
-    var parameters: Parameters? {
-        switch self {
-        case .getArticles(let query):
-            var qs: Parameters = [:]
-            qs["api-key"] = apiKey
-            qs["q"] = query
-            return ["qs": qs]
-        }
-    }
-    
     var headers: Headers? {
         return nil
+    }
+    
+    var parameters: Parameters? {
+        switch self {
+        case .getArticles(let query, let sort):
+            var parameters: Parameters = [:]
+            parameters["api-key"] = apiKey
+            parameters["q"] = query
+            parameters["sort"] = sort.rawValue
+            return parameters
+        }
     }
     
     var parameterEncoding: ParameterEncoding {
