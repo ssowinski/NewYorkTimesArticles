@@ -42,21 +42,28 @@ extension Dictionary where Key == String {
         return self.double(key) ?? 0.0
     }
 
-    func dictionaryValue(_ key: String) -> Dictionary {
-        return self[key] as? Dictionary ?? [:]
+    func dictionaryValue(_ key: String) -> Dictionary? {
+        return self[key] as? Dictionary
     }
     
-    func arrayDictValue(_ key: String) -> [Dictionary] {
-        var arraySnapDict: [Dictionary] = []
-        if let keyDicts = self[key] as? Dictionary {
-            for dict in keyDicts {
-                if let val = dict.1 as? Dictionary {
-                    arraySnapDict.append(val)
-                }
+    func arrayObject(_ key: String) -> [Dictionary]? {
+        return self[key] as? [Dictionary]
+    }
+    
+    func value(forPath fullPath: String) -> Any? {
+        let keysArray = fullPath.components(separatedBy: "/")
+        var currentJson: Json? = self
+        
+        for (index, key) in keysArray.enumerated() {
+            if index == keysArray.count - 1 {
+                return currentJson?[key]
+            } else {
+                currentJson = currentJson?.dictionaryValue(key)
             }
         }
-        return arraySnapDict
+        return currentJson
     }
+
 }
 
 
