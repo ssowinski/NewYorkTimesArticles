@@ -7,3 +7,7 @@
 */
 
 "articles_list_title" = "Artykuły z NewYorkTimes";
+"error_alert_title" = "Błąd";
+"invalid_authentication_alert_message" = "Nieprawidłowy api key";
+"outdated_version_of_app_alert_message" = "Nieaktualna wersja aplikacji";
+"unknown_api_error_alert_message" = "Coś poszło nie tak, spróbuj ponownie później.";

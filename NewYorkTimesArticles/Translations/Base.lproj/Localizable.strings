@@ -7,3 +7,7 @@
 */
 
 "articles_list_title" = "NewYorkTimes Articles";
+"error_alert_title" = "Error";
+"invalid_authentication_alert_message" = "Invalid authentication credentials.";
+"outdated_version_of_app_alert_message" = "Outdated version of app.";
+"unknown_api_error_alert_message" = "Something goes wrong, try again later.";
