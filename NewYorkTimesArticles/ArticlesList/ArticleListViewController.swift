@@ -48,6 +48,7 @@ class ArticleListViewController: UIViewController {
     
     private func configureSelf() {
         articlesLisitView?.tableView.dataSource = self
+        articlesLisitView?.tableView.delegate = self
         articlesLisitView?.refreshControl.addTarget(self, action: #selector(fetchArticles), for: .valueChanged)
         navigationItem.title = "articles_list_title".localize
         
@@ -77,6 +78,15 @@ extension ArticleListViewController: UITableViewDataSource {
     }
 }
 
+extension ArticleListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = viewModel.urlForCell(forIndexPath: indexPath) {
+            print("url: \(url)")
+        }
+    }
+}
+
 extension ArticleListViewController: ArticlesListViewModelDelegate {
     func stopActivityIndicator() {
         articlesLisitView?.activityIndicator.stopAnimating()
@@ -91,8 +101,8 @@ extension ArticleListViewController: ArticlesListViewModelDelegate {
         articlesLisitView?.tableView.reloadData()
     }
     
-    func didFinishFetchingDataWithError(_ errorMessage: String) {
+    func didFinishFetchingDataWithError(errorTitle: String, errorMessage: String) {
         articlesLisitView?.tableView.reloadData()
-        //TODO: - show alert
+        showAlert(errorTitle, message: errorMessage)
     }
 }

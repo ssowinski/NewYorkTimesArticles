@@ -13,4 +13,5 @@ protocol ArticlesListViewModelType {
     func fetchArticles()
     var articlesNumber: Int { get }
     func dataForCell(forIndexPath indexPath: IndexPath) -> ArticleCellAdapter?
+    func urlForCell(forIndexPath indexPath: IndexPath) -> URL?
 }

@@ -28,10 +28,20 @@ class ArticleProvider: ArticleProviding {
         
         requestBuilder.startRequest(requestTarget: requestTarget) {[weak self] (response, data, error) in
             
-            //            print("response: \(String(describing: response))")
-            //            let ncodeResoponseData = String(data: data ?? Data(), encoding: .utf8) ?? ""
-            //            print("data: \(ncodeResoponseData)")
-            //            print("error: \(String(describing: error))")
+//                        print("response: \(String(describing: response))")
+//                        let ncodeResoponseData = String(data: data ?? Data(), encoding: .utf8) ?? ""
+//                        print("data: \(ncodeResoponseData)")
+//                        print("error: \(String(describing: error))")
+            
+            
+            if error != nil || response?.statusCode != 200 {
+                let nytError = NYTError.serializeError(httpStatusCode: response?.statusCode, data: data, error: error)
+                
+                DispatchQueue.main.async {
+                    completionHandler(.failure(nytError))
+                }
+                return
+            }
             
             if let data = data {
                 let fetchedArticle: [Article] = self?.responseSerializer.getObjectsColection(fromData: data, forPath: "response/docs") ?? []

@@ -32,7 +32,9 @@ class ArticlesListViewModel: ArticlesListViewModelType {
                 self?.delegate?.didFinishFetchingDataWithSuccess()
             case .failure(let error):
                 self?.articles = []
-                self?.delegate?.didFinishFetchingDataWithError(error.localizedDescription)
+                if let nytError = error as? NYTError {
+                    self?.delegate?.didFinishFetchingDataWithError(errorTitle: nytError.alertTitle, errorMessage: nytError.alertMessage)
+                }
             }
         }
     }
@@ -46,4 +48,10 @@ class ArticlesListViewModel: ArticlesListViewModelType {
     var articlesNumber: Int {
         return articles.count
     }
+    
+    func urlForCell(forIndexPath indexPath: IndexPath) -> URL? {
+        guard indexPath.row < articles.count else { return nil }
+        return articles[indexPath.row].webUrl
+    }
+
 }
