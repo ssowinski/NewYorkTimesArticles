@@ -82,7 +82,9 @@ extension ArticleListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = viewModel.urlForCell(forIndexPath: indexPath) {
-            print("url: \(url)")
+            let articlesDetailsViewModel = ArticlesDetailsViewModel(url: url)
+            let articlesDetailsViewController = ArticlesDetailsViewController(viewModel: articlesDetailsViewModel)
+            navigationController?.pushViewController(articlesDetailsViewController, animated: true)
         }
     }
 }
