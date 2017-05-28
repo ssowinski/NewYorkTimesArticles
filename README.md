@@ -27,6 +27,16 @@ class Coordinator {
 }
 ```
 
+Now we should create coordinator for every view controller 
+- ArticleListCoordinator
+- ArticleDetailsCoordinator
+
+and main, entry coordinator AppCoordinator.
+
+
+
+
+
 ### Localization
 
 1. In Project/Info/Localizations we shoud have selected Use Base Internationalization 

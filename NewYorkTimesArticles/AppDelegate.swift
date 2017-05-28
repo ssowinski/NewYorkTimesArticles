@@ -17,10 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow()
-        let articleProvider = ArticleProvider(requestBuilder: NewYorkTimesRequestBuilder(), responseSerializer: SimpleResponseSerializer())
-        let viewModel = ArticlesListViewModel(articleProvider: articleProvider)
-        let viewController = ArticleListViewController(viewModel: viewModel)
-        window?.rootViewController = UINavigationController(rootViewController: viewController)
+        
+        let navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        let coordinator = AppCoordinator(navigationController: navigationController)
+        coordinator.start()
         
         window?.makeKeyAndVisible()
         return true
