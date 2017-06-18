@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ArticleListViewControllerDelegate: class {
+    func didSelectArticle(_ url: URL)
+}
+
 class ArticleListViewController: UIViewController {
+    
+    weak var delegate: ArticleListViewControllerDelegate?
     
     fileprivate var viewModel: ArticlesListViewModelType
     
@@ -82,9 +88,8 @@ extension ArticleListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = viewModel.urlForCell(forIndexPath: indexPath) {
-            let articlesDetailsViewModel = ArticlesDetailsViewModel(url: url)
-            let articlesDetailsViewController = ArticlesDetailsViewController(viewModel: articlesDetailsViewModel)
-            navigationController?.pushViewController(articlesDetailsViewController, animated: true)
+            
+            delegate?.didSelectArticle(url)
         }
     }
 }
