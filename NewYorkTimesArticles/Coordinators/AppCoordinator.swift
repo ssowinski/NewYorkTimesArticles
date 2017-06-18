@@ -11,10 +11,11 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     func start() {
-        let articleListCoordinator = ArticleListCoordinator(navigationController: navigationController)
+        let articleListCoordinator = ArticleListCoordinator(navigationController: navigationController, parentCoordinator: self)
         articleListCoordinator.start()
-        childCoordinators.append(articleListCoordinator)
+        addChildCoordinator(articleListCoordinator)
+        
+        print("AppCoordinator child: \(childCoordinators)")
     }
-    
     
 }

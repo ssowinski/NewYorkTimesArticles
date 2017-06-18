@@ -8,37 +8,26 @@
 
 import UIKit
 
-/// The Coordinator protocol
-protocol CoordinatorProt: class {
+class Coordinator {
     
-    /// The services that the coordinator can use
-    //var services: Services { get }
+    var childCoordinators: [Coordinator] = []
     
-    /// The array containing any child Coordinators
-    var childCoordinators: [Coordinator] { get set }
+    weak var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-}
-
-extension CoordinatorProt {
+    init(navigationController: UINavigationController?, parentCoordinator: Coordinator?) {
+        self.navigationController = navigationController
+        self.parentCoordinator = parentCoordinator
+    }
     
-    /// Add a child coordinator to the parent
-    func addChildCoordinator(childCoordinator: Coordinator) {
+    func addChildCoordinator(_ childCoordinator: Coordinator) {
         self.childCoordinators.append(childCoordinator)
     }
     
-    /// Remove a child coordinator from the parent
-    func removeChildCoordinator(childCoordinator: Coordinator) {
+    func removeChildCoordinator(_ childCoordinator: Coordinator) {
         self.childCoordinators = self.childCoordinators.filter { $0 !== childCoordinator }
-    }
-    
-}
-
-
-class Coordinator {
-    var childCoordinators: [Coordinator] = []
-    weak var navigationController: UINavigationController?
-    
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
+        //        if let index = childCoordinators.index(where: { $0 === childCoordinator }) {
+        //            childCoordinators.remove(at: index)
+        //        }
     }
 }
