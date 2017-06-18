@@ -18,11 +18,23 @@ Soroush Khanlou [Coordinators Redux](http://khanlou.com/2015/10/coordinators-red
 
 ```
 class Coordinator {
+
     var childCoordinators: [Coordinator] = []
+
+    weak var parentCoordinator: Coordinator?
     weak var navigationController: UINavigationController?
 
-    init(navigationController: UINavigationController?) {
+    init(navigationController: UINavigationController?, parentCoordinator: Coordinator?) {
         self.navigationController = navigationController
+        self.parentCoordinator = parentCoordinator
+    }
+
+    func addChildCoordinator(_ childCoordinator: Coordinator) {
+        self.childCoordinators.append(childCoordinator)
+    }
+
+    func removeChildCoordinator(_ childCoordinator: Coordinator) {
+        self.childCoordinators = self.childCoordinators.filter { $0 !== childCoordinator }
     }
 }
 ```
@@ -30,9 +42,25 @@ class Coordinator {
 Now we should create coordinator for every view controller 
 - ArticleListCoordinator
 - ArticleDetailsCoordinator
-
 and main, entry coordinator AppCoordinator.
 
+General, when we create ViewController in Coordinator, we set Coordinator as VC's delegate.
+Now Coordinator can handled our app flow. 
+e.g ArticleListViewController delegate function in ArticleListCoordinator
+
+```
+extension ArticleListCoordinator: ArticleListViewControllerDelegate {
+
+    func didSelectArticle(_ url: URL) {
+        let articlesDetailsCoordinator = ArticlesDetailsCoordinator(navigationController: navigationController, parentCoordinator: self)
+        articlesDetailsCoordinator.start(url: url)
+        addChildCoordinator(articlesDetailsCoordinator)
+    }
+}
+
+```
+
+To avoid delegate form child to parent coordinator, I add week refernce to parent coordinator. It is helpfull, when we want remove self form parent child coordinators.
 
 
 
