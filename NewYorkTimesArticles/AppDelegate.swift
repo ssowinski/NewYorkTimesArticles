@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController = UINavigationController()
         window?.rootViewController = navigationController
-        let coordinator = AppCoordinator(navigationController: navigationController)
-        coordinator.start()
+        coordinator = AppCoordinator(navigationController: navigationController, parentCoordinator: nil)
+        coordinator?.start()
         
         window?.makeKeyAndVisible()
         return true
