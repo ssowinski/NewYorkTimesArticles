@@ -9,7 +9,18 @@
 import Foundation
 import UIKit
 
+protocol ArticlesDetailsViewControllerDelegate: class {
+    func didDeinitViewController()
+}
+
 class ArticlesDetailsViewController: UIViewController {
+    
+    weak var delegate: ArticlesDetailsViewControllerDelegate?
+    
+    deinit {
+        print("deinit ArticlesDetailsViewController")
+        delegate?.didDeinitViewController()
+    }
     
     private let viewModel: ArticlesDetailsViewModel
     
