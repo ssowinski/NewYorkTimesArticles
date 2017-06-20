@@ -1,10 +1,5 @@
 # NewYorkTimes Articles - MVVM and Coordinator Pattern.
 
-We have MVC with two view controllers ArticlesListViewController and DetailsViewController.
-In AppDelegate we have set ArticlesListViewController (embed in UINavigationController ) as a window?.rootViewController 
-
-
-
 ## What is a coordinator?
 
 > So what is a coordinator? A coordinator is an object that bosses one or more view controllers around. Taking all of the driving logic out of your view controllers, and moving that stuff one layer up is gonna make your life a lot more awesome.
@@ -65,7 +60,7 @@ To avoid delegate form child to parent coordinator, I add week refernce to paren
 
 
 
-### Localization
+## Localization
 
 1. In Project/Info/Localizations we shoud have selected Use Base Internationalization 
 2. In Project/Info/Localizations add Polish 
@@ -82,10 +77,3 @@ extension String {
     }
 }
 ```
-
-
-
-
-You can also, with the user’s permission, gain secure access to the user’s account infor‐ mation through the ACAccountStore class (part of the Accounts framework). Using this, along with the SLRequest class, your app can construct and post a message directly, without passing through the message composition interface. The ACAccount‐
-832 | Chapter 20: Mail and Messages
-Store class can manipulate accounts in other ways as well, without violating the user’s privacy.
