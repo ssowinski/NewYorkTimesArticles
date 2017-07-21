@@ -58,6 +58,31 @@ extension ArticleListCoordinator: ArticleListViewControllerDelegate {
 To avoid delegate form child to parent coordinator, I add week refernce to parent coordinator. It is helpfull, when we want remove self form parent child coordinators.
 
 
+## Protocols 
+
+> You can use protocol extensions to provide a default implementation to any method or computed property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension.
+
+### Adding Constraints to Protocol Extensions
+
+When you define a protocol extension, you can specify constraints that conforming types must satisfy before the methods and properties of the extension are available (using a generic where clause)
+
+
+```
+protocol ErrorPresenting {
+    func showAlert(_ title: String, message: String)
+}
+
+extension ErrorPresenting where Self: UIViewController {
+
+    func showAlert(_ title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+```
 
 
 ## Localization

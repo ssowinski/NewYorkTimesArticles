@@ -1,14 +1,19 @@
 //
-//  UIViewController+ShowAlert.swift
+//  ErrorPresenting.swift
 //  NewYorkTimesArticles
 //
-//  Created by Sławomir Sowiński on 15.05.2017.
+//  Created by Sławomir Sowiński on 21.07.2017.
 //  Copyright © 2017 Sławomir Sowiński. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-extension UIViewController {
+protocol ErrorPresenting {
+    func showAlert(_ title: String, message: String)
+}
+
+extension ErrorPresenting where Self: UIViewController {
     
     func showAlert(_ title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

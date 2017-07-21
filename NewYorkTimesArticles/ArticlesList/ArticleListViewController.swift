@@ -12,7 +12,7 @@ protocol ArticleListViewControllerDelegate: class {
     func didSelectArticle(_ url: URL)
 }
 
-class ArticleListViewController: UIViewController {
+class ArticleListViewController: UIViewController, ErrorPresenting {
     
     weak var delegate: ArticleListViewControllerDelegate?
     

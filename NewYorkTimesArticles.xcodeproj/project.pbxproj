@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B33289AA1EC99DB4003C5ECF /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33289A91EC99DB4003C5ECF /* UIViewController+ShowAlert.swift */; };
 		B33289AC1EC9A394003C5ECF /* NYTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33289AB1EC9A394003C5ECF /* NYTError.swift */; };
 		B366B3831ECAF54E00742C35 /* ArticlesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366B3821ECAF54E00742C35 /* ArticlesDetailsViewController.swift */; };
 		B366B3861ECAFB5D00742C35 /* ArticlesDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366B3851ECAFB5D00742C35 /* ArticlesDetailsView.swift */; };
@@ -46,6 +45,7 @@
 		B3905A481EC5E14600206CC4 /* NetworkingTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A471EC5E14600206CC4 /* NetworkingTools.swift */; };
 		B3905A4A1EC6119C00206CC4 /* ResponseSerializerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A491EC6119C00206CC4 /* ResponseSerializerType.swift */; };
 		B3905A4C1EC611DE00206CC4 /* SimpleResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A4B1EC611DE00206CC4 /* SimpleResponseSerializer.swift */; };
+		B3AAF3A21F21FC660033919B /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */; };
 		B3C3899E1EC44E140024829B /* JsonInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3899D1EC44E140024829B /* JsonInitializable.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B33289A91EC99DB4003C5ECF /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
 		B33289AB1EC9A394003C5ECF /* NYTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTError.swift; sourceTree = "<group>"; };
 		B366B3821ECAF54E00742C35 /* ArticlesDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesDetailsViewController.swift; sourceTree = "<group>"; };
 		B366B3851ECAFB5D00742C35 /* ArticlesDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesDetailsView.swift; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		B3905A471EC5E14600206CC4 /* NetworkingTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTools.swift; sourceTree = "<group>"; };
 		B3905A491EC6119C00206CC4 /* ResponseSerializerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializerType.swift; sourceTree = "<group>"; };
 		B3905A4B1EC611DE00206CC4 /* SimpleResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleResponseSerializer.swift; sourceTree = "<group>"; };
+		B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
 		B3C3899D1EC44E140024829B /* JsonInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonInitializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +226,7 @@
 		B3750CAA1EC1B54E00765E42 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B3AAF3A01F21FC4B0033919B /* Protocol */,
 				B3750CAB1EC1B54E00765E42 /* Extension */,
 				B3750CAE1EC1B54E00765E42 /* Utils.swift */,
 				B3750CE61EC210F200765E42 /* Typealias.swift */,
@@ -241,7 +242,6 @@
 				B3750CBD1EC1B77800765E42 /* String+Localized.swift */,
 				B3750CC61EC1BED900765E42 /* Date+String.swift */,
 				B3750CD81EC1C82C00765E42 /* UITableViewCell+ReusableIdentifier.swift */,
-				B33289A91EC99DB4003C5ECF /* UIViewController+ShowAlert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -310,6 +310,14 @@
 				B3750CD61EC1C6C400765E42 /* ArticlesListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B3AAF3A01F21FC4B0033919B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,7 +433,6 @@
 				B3750CB01EC1B54E00765E42 /* String+URL.swift in Sources */,
 				B3750CA91EC1B54200765E42 /* Result.swift in Sources */,
 				B3750CD01EC1C2A000765E42 /* ArticleCellAdapter.swift in Sources */,
-				B33289AA1EC99DB4003C5ECF /* UIViewController+ShowAlert.swift in Sources */,
 				B3750CB31EC1B55600765E42 /* README.md in Sources */,
 				B3750CB11EC1B54E00765E42 /* Utils.swift in Sources */,
 				B3750CDB1EC1CBA400765E42 /* ArticleListViewController.swift in Sources */,
@@ -446,6 +453,7 @@
 				B3905A461EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift in Sources */,
 				B3905A4C1EC611DE00206CC4 /* SimpleResponseSerializer.swift in Sources */,
 				B3750CC51EC1BB2D00765E42 /* Article.swift in Sources */,
+				B3AAF3A21F21FC660033919B /* ErrorPresenting.swift in Sources */,
 				B3750CCC1EC1C10100765E42 /* ArticlesListViewModelType.swift in Sources */,
 				B3750C821EC1B1F900765E42 /* AppDelegate.swift in Sources */,
 				B3750CD91EC1C82C00765E42 /* UITableViewCell+ReusableIdentifier.swift in Sources */,
