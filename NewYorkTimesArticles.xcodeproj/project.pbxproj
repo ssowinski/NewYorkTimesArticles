@@ -24,7 +24,6 @@
 		B3750CAF1EC1B54E00765E42 /* Dictionary+KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAC1EC1B54E00765E42 /* Dictionary+KeyValue.swift */; };
 		B3750CB01EC1B54E00765E42 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAD1EC1B54E00765E42 /* String+URL.swift */; };
 		B3750CB11EC1B54E00765E42 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAE1EC1B54E00765E42 /* Utils.swift */; };
-		B3750CB31EC1B55600765E42 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B3750CB21EC1B55600765E42 /* README.md */; };
 		B3750CBE1EC1B77800765E42 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CBD1EC1B77800765E42 /* String+Localized.swift */; };
 		B3750CC21EC1B7FD00765E42 /* ArticlesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CC11EC1B7FD00765E42 /* ArticlesProvider.swift */; };
 		B3750CC51EC1BB2D00765E42 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CC41EC1BB2D00765E42 /* Article.swift */; };
@@ -435,7 +434,6 @@
 				B3750CB01EC1B54E00765E42 /* String+URL.swift in Sources */,
 				B3750CA91EC1B54200765E42 /* Result.swift in Sources */,
 				B3750CD01EC1C2A000765E42 /* ArticleCellAdapter.swift in Sources */,
-				B3750CB31EC1B55600765E42 /* README.md in Sources */,
 				B3750CB11EC1B54E00765E42 /* Utils.swift in Sources */,
 				B3750CDB1EC1CBA400765E42 /* ArticleListViewController.swift in Sources */,
 				B3905A481EC5E14600206CC4 /* NetworkingTools.swift in Sources */,
@@ -620,7 +618,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ssowinski.NewYorkTimesArticles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -633,7 +631,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ssowinski.NewYorkTimesArticles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
