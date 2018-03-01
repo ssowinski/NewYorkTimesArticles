@@ -60,7 +60,7 @@ class ArticleListViewController: UIViewController, ErrorPresenting {
         
     }
     
-    func fetchArticles() {
+    @objc func fetchArticles() {
         viewModel.fetchArticles()
         articlesLisitView?.refreshControl.endRefreshing()
     }
