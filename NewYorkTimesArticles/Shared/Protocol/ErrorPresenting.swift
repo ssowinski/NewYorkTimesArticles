@@ -6,7 +6,6 @@
 //  Copyright © 2017 Sławomir Sowiński. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol ErrorPresenting {
