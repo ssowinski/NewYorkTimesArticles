@@ -184,8 +184,8 @@
 		B3750C801EC1B1F900765E42 /* NewYorkTimesArticles */ = {
 			isa = PBXGroup;
 			children = (
+				B389C9EF204AB13700691C99 /* Application */,
 				B36B367F1ED9A7C4004A4F5E /* Coordinators */,
-				B3750C811EC1B1F900765E42 /* AppDelegate.swift */,
 				B3750CAA1EC1B54E00765E42 /* Shared */,
 				B3750CA11EC1B54200765E42 /* Networking */,
 				B3750CBF1EC1B7B400765E42 /* ArticlesList */,
@@ -309,6 +309,14 @@
 				B3750CD61EC1C6C400765E42 /* ArticlesListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B389C9EF204AB13700691C99 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B3750C811EC1B1F900765E42 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		B3AAF3A01F21FC4B0033919B /* Protocol */ = {
