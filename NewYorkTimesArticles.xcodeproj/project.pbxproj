@@ -38,13 +38,24 @@
 		B3750CDB1EC1CBA400765E42 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CDA1EC1CBA400765E42 /* ArticleListViewController.swift */; };
 		B3750CE01EC1D2E100765E42 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3750CE21EC1D2E100765E42 /* Localizable.strings */; };
 		B3750CE71EC210F200765E42 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CE61EC210F200765E42 /* Typealias.swift */; };
-		B3905A421EC5DE0200206CC4 /* RequestBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A411EC5DE0200206CC4 /* RequestBuilderType.swift */; };
-		B3905A441EC5DE7B00206CC4 /* NewYorkTimesRequestTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A431EC5DE7B00206CC4 /* NewYorkTimesRequestTarget.swift */; };
-		B3905A461EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A451EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift */; };
+		B389C9F2204AC63300691C99 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389C9F1204AC63300691C99 /* NetworkService.swift */; };
+		B389C9F4204AC67A00691C99 /* ErrorSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389C9F3204AC67A00691C99 /* ErrorSerializing.swift */; };
+		B389C9F8204AE38B00691C99 /* NetworkLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389C9F7204AE38B00691C99 /* NetworkLogging.swift */; };
+		B389C9FA204AE45A00691C99 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389C9F9204AE45A00691C99 /* RequestProcessor.swift */; };
+		B389CA02204AE69000691C99 /* DefaultNetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA01204AE69000691C99 /* DefaultNetworkLogger.swift */; };
+		B389CA06204AF30100691C99 /* DefaultRequestTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA05204AF30100691C99 /* DefaultRequestTarget.swift */; };
+		B389CA08204AF3CF00691C99 /* NYTRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA07204AF3CF00691C99 /* NYTRouter.swift */; };
+		B389CA0C204AF69600691C99 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA0B204AF69600691C99 /* SortType.swift */; };
+		B389CA0E204AFB0700691C99 /* NYTErrorSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA0D204AFB0700691C99 /* NYTErrorSerializer.swift */; };
+		B389CA10204C1D7100691C99 /* BasicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA0F204C1D7100691C99 /* BasicProvider.swift */; };
+		B389CA12204C1E8400691C99 /* HeaderManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA11204C1E8400691C99 /* HeaderManaging.swift */; };
+		B389CA14204C1F4600691C99 /* DefaultHeaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA13204C1F4600691C99 /* DefaultHeaderManager.swift */; };
+		B389CA16204C329200691C99 /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA15204C329200691C99 /* PresentableError.swift */; };
+		B3905A461EC5DFCE00206CC4 /* DefaultNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A451EC5DFCE00206CC4 /* DefaultNetworkService.swift */; };
 		B3905A481EC5E14600206CC4 /* NetworkingTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A471EC5E14600206CC4 /* NetworkingTools.swift */; };
-		B3905A4A1EC6119C00206CC4 /* ResponseSerializerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A491EC6119C00206CC4 /* ResponseSerializerType.swift */; };
-		B3905A4C1EC611DE00206CC4 /* SimpleResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A4B1EC611DE00206CC4 /* SimpleResponseSerializer.swift */; };
-		B3AAF3A21F21FC660033919B /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */; };
+		B3905A4A1EC6119C00206CC4 /* SuccessSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A491EC6119C00206CC4 /* SuccessSerializing.swift */; };
+		B3905A4C1EC611DE00206CC4 /* DefaultSuccessSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A4B1EC611DE00206CC4 /* DefaultSuccessSerializer.swift */; };
+		B3AAF3A21F21FC660033919B /* AlertPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAF3A11F21FC660033919B /* AlertPresenting.swift */; };
 		B3C3899E1EC44E140024829B /* JsonInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3899D1EC44E140024829B /* JsonInitializable.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,13 +108,24 @@
 		B3750CE11EC1D2E100765E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3750CE31EC1D2E400765E42 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3750CE61EC210F200765E42 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
-		B3905A411EC5DE0200206CC4 /* RequestBuilderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderType.swift; sourceTree = "<group>"; };
-		B3905A431EC5DE7B00206CC4 /* NewYorkTimesRequestTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkTimesRequestTarget.swift; sourceTree = "<group>"; };
-		B3905A451EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkTimesRequestBuilder.swift; sourceTree = "<group>"; };
+		B389C9F1204AC63300691C99 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B389C9F3204AC67A00691C99 /* ErrorSerializing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSerializing.swift; sourceTree = "<group>"; };
+		B389C9F7204AE38B00691C99 /* NetworkLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogging.swift; sourceTree = "<group>"; };
+		B389C9F9204AE45A00691C99 /* RequestProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
+		B389CA01204AE69000691C99 /* DefaultNetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkLogger.swift; sourceTree = "<group>"; };
+		B389CA05204AF30100691C99 /* DefaultRequestTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequestTarget.swift; sourceTree = "<group>"; };
+		B389CA07204AF3CF00691C99 /* NYTRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTRouter.swift; sourceTree = "<group>"; };
+		B389CA0B204AF69600691C99 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		B389CA0D204AFB0700691C99 /* NYTErrorSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTErrorSerializer.swift; sourceTree = "<group>"; };
+		B389CA0F204C1D7100691C99 /* BasicProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicProvider.swift; sourceTree = "<group>"; };
+		B389CA11204C1E8400691C99 /* HeaderManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderManaging.swift; sourceTree = "<group>"; };
+		B389CA13204C1F4600691C99 /* DefaultHeaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeaderManager.swift; sourceTree = "<group>"; };
+		B389CA15204C329200691C99 /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
+		B3905A451EC5DFCE00206CC4 /* DefaultNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkService.swift; sourceTree = "<group>"; };
 		B3905A471EC5E14600206CC4 /* NetworkingTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTools.swift; sourceTree = "<group>"; };
-		B3905A491EC6119C00206CC4 /* ResponseSerializerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializerType.swift; sourceTree = "<group>"; };
-		B3905A4B1EC611DE00206CC4 /* SimpleResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleResponseSerializer.swift; sourceTree = "<group>"; };
-		B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
+		B3905A491EC6119C00206CC4 /* SuccessSerializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessSerializing.swift; sourceTree = "<group>"; };
+		B3905A4B1EC611DE00206CC4 /* DefaultSuccessSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSuccessSerializer.swift; sourceTree = "<group>"; };
+		B3AAF3A11F21FC660033919B /* AlertPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresenting.swift; sourceTree = "<group>"; };
 		B3C3899D1EC44E140024829B /* JsonInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonInitializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,16 +230,17 @@
 		B3750CA11EC1B54200765E42 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B3750CA41EC1B54200765E42 /* RequestTargetType.swift */,
-				B3905A431EC5DE7B00206CC4 /* NewYorkTimesRequestTarget.swift */,
-				B3905A411EC5DE0200206CC4 /* RequestBuilderType.swift */,
-				B3905A451EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift */,
-				B3905A491EC6119C00206CC4 /* ResponseSerializerType.swift */,
-				B3905A4B1EC611DE00206CC4 /* SimpleResponseSerializer.swift */,
-				B3750CA51EC1B54200765E42 /* Result.swift */,
-				B3C3899D1EC44E140024829B /* JsonInitializable.swift */,
-				B3905A471EC5E14600206CC4 /* NetworkingTools.swift */,
+				B389C9F0204AC05C00691C99 /* Protocol */,
+				B389CA05204AF30100691C99 /* DefaultRequestTarget.swift */,
+				B389CA07204AF3CF00691C99 /* NYTRouter.swift */,
+				B3905A451EC5DFCE00206CC4 /* DefaultNetworkService.swift */,
+				B3905A4B1EC611DE00206CC4 /* DefaultSuccessSerializer.swift */,
 				B33289AB1EC9A394003C5ECF /* NYTError.swift */,
+				B389CA0D204AFB0700691C99 /* NYTErrorSerializer.swift */,
+				B389CA01204AE69000691C99 /* DefaultNetworkLogger.swift */,
+				B389CA13204C1F4600691C99 /* DefaultHeaderManager.swift */,
+				B3905A471EC5E14600206CC4 /* NetworkingTools.swift */,
+				B389CA0F204C1D7100691C99 /* BasicProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -288,6 +311,7 @@
 			children = (
 				B3750CC41EC1BB2D00765E42 /* Article.swift */,
 				B3750CCF1EC1C2A000765E42 /* ArticleCellAdapter.swift */,
+				B389CA0B204AF69600691C99 /* SortType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,10 +343,27 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		B389C9F0204AC05C00691C99 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B3750CA41EC1B54200765E42 /* RequestTargetType.swift */,
+				B389C9F1204AC63300691C99 /* NetworkService.swift */,
+				B389C9F3204AC67A00691C99 /* ErrorSerializing.swift */,
+				B3905A491EC6119C00206CC4 /* SuccessSerializing.swift */,
+				B3C3899D1EC44E140024829B /* JsonInitializable.swift */,
+				B3750CA51EC1B54200765E42 /* Result.swift */,
+				B389C9F7204AE38B00691C99 /* NetworkLogging.swift */,
+				B389CA11204C1E8400691C99 /* HeaderManaging.swift */,
+				B389C9F9204AE45A00691C99 /* RequestProcessor.swift */,
+				B389CA15204C329200691C99 /* PresentableError.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		B3AAF3A01F21FC4B0033919B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B3AAF3A11F21FC660033919B /* ErrorPresenting.swift */,
+				B3AAF3A11F21FC660033919B /* AlertPresenting.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -437,10 +478,13 @@
 				B33289AC1EC9A394003C5ECF /* NYTError.swift in Sources */,
 				B3750CC71EC1BED900765E42 /* Date+String.swift in Sources */,
 				B36B36831ED9AD3C004A4F5E /* AppCoordinator.swift in Sources */,
+				B389C9FA204AE45A00691C99 /* RequestProcessor.swift in Sources */,
 				B36B36851ED9AFE3004A4F5E /* ArticleListCoordinator.swift in Sources */,
 				B366B3891ECAFE4E00742C35 /* ArticlesDetailsViewModel.swift in Sources */,
+				B389CA10204C1D7100691C99 /* BasicProvider.swift in Sources */,
 				B3750CB01EC1B54E00765E42 /* String+URL.swift in Sources */,
 				B3750CA91EC1B54200765E42 /* Result.swift in Sources */,
+				B389C9F4204AC67A00691C99 /* ErrorSerializing.swift in Sources */,
 				B3750CD01EC1C2A000765E42 /* ArticleCellAdapter.swift in Sources */,
 				B3750CB11EC1B54E00765E42 /* Utils.swift in Sources */,
 				B3750CDB1EC1CBA400765E42 /* ArticleListViewController.swift in Sources */,
@@ -452,21 +496,29 @@
 				B3750CCE1EC1C12300765E42 /* ArticlesListViewModelDelegate.swift in Sources */,
 				B3750CD51EC1C6A400765E42 /* ArticlesTableViewCell.swift in Sources */,
 				B36B36811ED9A879004A4F5E /* Coordinator.swift in Sources */,
+				B389CA06204AF30100691C99 /* DefaultRequestTarget.swift in Sources */,
 				B3750CE71EC210F200765E42 /* Typealias.swift in Sources */,
-				B3905A421EC5DE0200206CC4 /* RequestBuilderType.swift in Sources */,
 				B3750CD71EC1C6C500765E42 /* ArticlesListView.swift in Sources */,
-				B3905A4A1EC6119C00206CC4 /* ResponseSerializerType.swift in Sources */,
+				B389C9F2204AC63300691C99 /* NetworkService.swift in Sources */,
+				B3905A4A1EC6119C00206CC4 /* SuccessSerializing.swift in Sources */,
+				B389CA0C204AF69600691C99 /* SortType.swift in Sources */,
 				B3750CAF1EC1B54E00765E42 /* Dictionary+KeyValue.swift in Sources */,
-				B3905A441EC5DE7B00206CC4 /* NewYorkTimesRequestTarget.swift in Sources */,
-				B3905A461EC5DFCE00206CC4 /* NewYorkTimesRequestBuilder.swift in Sources */,
-				B3905A4C1EC611DE00206CC4 /* SimpleResponseSerializer.swift in Sources */,
+				B389CA02204AE69000691C99 /* DefaultNetworkLogger.swift in Sources */,
+				B3905A461EC5DFCE00206CC4 /* DefaultNetworkService.swift in Sources */,
+				B389C9F8204AE38B00691C99 /* NetworkLogging.swift in Sources */,
+				B3905A4C1EC611DE00206CC4 /* DefaultSuccessSerializer.swift in Sources */,
 				B3750CC51EC1BB2D00765E42 /* Article.swift in Sources */,
-				B3AAF3A21F21FC660033919B /* ErrorPresenting.swift in Sources */,
+				B389CA12204C1E8400691C99 /* HeaderManaging.swift in Sources */,
+				B389CA0E204AFB0700691C99 /* NYTErrorSerializer.swift in Sources */,
+				B389CA16204C329200691C99 /* PresentableError.swift in Sources */,
+				B3AAF3A21F21FC660033919B /* AlertPresenting.swift in Sources */,
 				B3750CCC1EC1C10100765E42 /* ArticlesListViewModelType.swift in Sources */,
 				B3750C821EC1B1F900765E42 /* AppDelegate.swift in Sources */,
 				B3750CD91EC1C82C00765E42 /* UITableViewCell+ReusableIdentifier.swift in Sources */,
 				B3750CA81EC1B54200765E42 /* RequestTargetType.swift in Sources */,
 				B366B3831ECAF54E00742C35 /* ArticlesDetailsViewController.swift in Sources */,
+				B389CA14204C1F4600691C99 /* DefaultHeaderManager.swift in Sources */,
+				B389CA08204AF3CF00691C99 /* NYTRouter.swift in Sources */,
 				B3750CC21EC1B7FD00765E42 /* ArticlesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

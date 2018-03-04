@@ -12,7 +12,7 @@ protocol ArticleListViewControllerDelegate: class {
     func didSelectArticle(_ url: URL)
 }
 
-class ArticleListViewController: UIViewController, ErrorPresenting {
+class ArticleListViewController: UIViewController, AlertPresenting {
     
     weak var delegate: ArticleListViewControllerDelegate?
     
@@ -97,6 +97,7 @@ extension ArticleListViewController: UITableViewDelegate {
 extension ArticleListViewController: ArticlesListViewModelDelegate {
     func stopActivityIndicator() {
         articlesLisitView?.activityIndicator.stopAnimating()
+        articlesLisitView?.refreshControl.endRefreshing()
     }
     
     func startActivityIndicator() {
@@ -108,8 +109,8 @@ extension ArticleListViewController: ArticlesListViewModelDelegate {
         articlesLisitView?.tableView.reloadData()
     }
     
-    func didFinishFetchingDataWithError(errorTitle: String, errorMessage: String) {
+    func didFinishFetchingDataWithError(error: Error) {
         articlesLisitView?.tableView.reloadData()
-        showAlert(errorTitle, message: errorMessage)
+        showError(error: error, refreshAction: nil)
     }
 }

@@ -9,3 +9,5 @@
 typealias Parameters = [String: Any]
 typealias Headers = [String: Any]
 typealias Json = [String: Any]
+
+typealias Action = () -> ()

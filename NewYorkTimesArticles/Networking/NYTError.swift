@@ -7,60 +7,42 @@
 //
 
 import Foundation
-
+//TODO: removed unneeded
 enum NYTError: Error {
-    
+    case timedOut
+    case offline
+    case unknown
+    case jsonMapping
+    case noDataInResponse
+    case jsonParsing
+
     case invalidAuthentication
     case outdatedVersionOfApp
     case unknownApiError
 }
 
-extension NYTError {
-    
-    var alertTitle: String {
+extension NYTError: PresentableError {
+
+    var title: String {
         return "error_alert_title".localize
     }
     
-    var alertMessage: String {
+    var message: String {
         switch self {
+        case .offline: return "not internet"
         case .invalidAuthentication: return "invalid_authentication_alert_message".localize
         case .outdatedVersionOfApp: return "outdated_version_of_app_alert_message".localize
         case .unknownApiError: return "unknown_api_error_alert_message".localize
-        }
-    }
-}
-
-
-extension NYTError {
-    
-    private static func fromStatusCode(_ httpStatusCode: Int) -> NYTError? {
-        switch httpStatusCode {
-        case 426: return .outdatedVersionOfApp
-        default:    return nil
+        default: return ""
         }
     }
     
-    private static func fromData(_ data: Data) -> NYTError {
-        guard let serialization = try? JSONSerialization.jsonObject(with: data, options: []), let json = serialization as? Json else {
-            return .unknownApiError
+    var alertType: AlertType {
+        switch self {
+        case .timedOut:
+            return .refresh
+        default:
+            return .ok
         }
-        
-        switch json.stringValue("message") {
-        case "Invalid authentication credentials" : return .invalidAuthentication
-        default: return .unknownApiError //.unknownApiErrorFromJson(message: json["message"].stringValue)
-        }
-    }
-    
-    static func serializeError(httpStatusCode: Int?,  data: Data?, error: Error?) -> NYTError {
-        
-        if let httpStatusCode = httpStatusCode, let errorFormHttpStatusCode = NYTError.fromStatusCode(httpStatusCode) {
-            return errorFormHttpStatusCode
-        }
-        
-        if let data  = data {
-            return fromData(data)
-        }
-        
-        return NYTError.unknownApiError
     }
 }

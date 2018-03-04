@@ -12,49 +12,11 @@ protocol ArticleProviding {
     func fetchArticles(completionHandler: @escaping (Result<[Article]>) -> ())
 }
 
-class ArticleProvider: ArticleProviding {
-    
-    private let requestBuilder: RequestBuilderType
-    private let responseSerializer: ResponseSerializerType
-    
-    init(requestBuilder: RequestBuilderType, responseSerializer: ResponseSerializerType) {
-        self.requestBuilder = requestBuilder
-        self.responseSerializer = responseSerializer
-    }
-    
+class ArticleProvider: BasicProvider, ArticleProviding, RequestProcessor {
     func fetchArticles(completionHandler: @escaping (Result<[Article]>) -> ()) {
-        
-        let requestTarget = NewYorkTimesRequestTarget.getArticles(query: "kubica", sort: SortType.newest)
-        
-        requestBuilder.startRequest(requestTarget: requestTarget) {[weak self] (response, data, error) in
-            
-//                        print("response: \(String(describing: response))")
-//                        let ncodeResoponseData = String(data: data ?? Data(), encoding: .utf8) ?? ""
-//                        print("data: \(ncodeResoponseData)")
-//                        print("error: \(String(describing: error))")
-            
-            
-            if error != nil || response?.statusCode != 200 {
-                let nytError = NYTError.serializeError(httpStatusCode: response?.statusCode, data: data, error: error)
-                
-                DispatchQueue.main.async {
-                    completionHandler(.failure(nytError))
-                }
-                return
-            }
-            
-            if let data = data {
-                let fetchedArticle: [Article] = self?.responseSerializer.getObjectsColection(fromData: data, forPath: "response/docs") ?? []
-                DispatchQueue.main.async {
-                    completionHandler(.success(fetchedArticle))
-                }
-            } else {
-                DispatchQueue.main.async {
-                    completionHandler(.success([]))
-                }
-            }
-        }
-
+        var requestTarget = NYTRouter.getArticles(query: "kubica", sort: SortType.newest).requestTarget
+        requestTarget.addHeaders(headerManager.platformHeaders)
+        getCollection(requestTarget: requestTarget, completionHandler: completionHandler)
     }
 }
 

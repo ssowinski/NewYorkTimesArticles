@@ -1,5 +1,5 @@
 //
-//  NewYorkTimesRequestBuilder.swift
+//  DefaultNetworkService.swift
 //  NewYorkTimesArticles
 //
 //  Created by Sławomir Sowiński on 12.05.2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewYorkTimesRequestBuilder: RequestBuilderType {
+class DefaultNetworkService: NetworkService {
     
     private let urlSession : URLSession
     private let sessionConfig : URLSessionConfiguration
@@ -21,7 +21,7 @@ class NewYorkTimesRequestBuilder: RequestBuilderType {
         urlSession = URLSession(configuration: sessionConfig)
     }
     
-    func startRequest(requestTarget: RequestTargetType, completionHandler: @escaping (HTTPURLResponse?, Data?, Error?) -> Void) {
+    func startRequest(_ requestTarget: RequestTargetType, completionHandler: @escaping (HTTPURLResponse?, Data?, Error?) -> Void) {
         
         if dataTask != nil {
             dataTask?.cancel()
@@ -31,13 +31,15 @@ class NewYorkTimesRequestBuilder: RequestBuilderType {
         
         let stringParameters = NetworkingTools.parametersToString(requestTarget.parameters)
         
-        guard let url = URL(string: "\(requestTarget.URLString)\(stringParameters)") else {
+        guard let url = URL(string: "\(requestTarget.path)\(stringParameters)") else {
             //TODO: -completionHandler with error
             return
         }
         
         dataTask = urlSession.dataTask(with: url) { data, response, error in
-            completionHandler(response as? HTTPURLResponse, data, error)
+            DispatchQueue.main.async {
+                completionHandler(response as? HTTPURLResponse, data, error)
+            }
         }
         
         dataTask?.resume()

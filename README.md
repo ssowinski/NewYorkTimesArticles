@@ -1,5 +1,8 @@
 # NewYorkTimes Articles - MVVM and Coordinator Pattern.
 
+In this project I'm going to use only apple frameworks, without any external libraries.
+In real life project I recommend to use Cocoapods, in this kind of apps very helpfull are: [Alamofire](https://github.com/Alamofire/Alamofire), [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON), [Reachability](https://github.com/ashleymills/Reachability.swift) etc.
+
 ## What is a coordinator?
 
 > So what is a coordinator? A coordinator is an object that bosses one or more view controllers around. Taking all of the driving logic out of your view controllers, and moving that stuff one layer up is gonna make your life a lot more awesome.
@@ -56,6 +59,10 @@ extension ArticleListCoordinator: ArticleListViewControllerDelegate {
 ```
 
 To avoid delegate form child to parent coordinator, I add week refernce to parent coordinator. It is helpfull, when we want remove self form parent child coordinators.
+
+## Networking
+
+
 
 
 ## Protocols 

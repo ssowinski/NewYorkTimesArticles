@@ -32,9 +32,7 @@ class ArticlesListViewModel: ArticlesListViewModelType {
                 self?.delegate?.didFinishFetchingDataWithSuccess()
             case .failure(let error):
                 self?.articles = []
-                if let nytError = error as? NYTError {
-                    self?.delegate?.didFinishFetchingDataWithError(errorTitle: nytError.alertTitle, errorMessage: nytError.alertMessage)
-                }
+                self?.delegate?.didFinishFetchingDataWithError(error: error)
             }
         }
     }

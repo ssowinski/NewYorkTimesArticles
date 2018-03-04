@@ -37,5 +37,8 @@ struct NetworkingTools {
         return parArray.isEmpty ? "" : Const.SeparatorMethodAndParameters + parArray.joined(separator: Const.Separator)
     }
     
+    static func getJson(_ data: Data) -> Any? {
+        return try? JSONSerialization.jsonObject(with: data, options: [])
+    }
     
 }

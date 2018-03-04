@@ -66,9 +66,22 @@ extension Dictionary where Key == String {
 
 }
 
-
-func +=<K, V> (left: inout [K : V], right: [K : V]) {
-    for (k, v) in right {
-        left[k] = v
+func + <K,V>(left: Dictionary<K,V>?, right: Dictionary<K,V>?) -> Dictionary<K,V> {
+    
+    var map = Dictionary<K,V>()
+    
+    if let left = left {
+        for (k, v) in left {
+            map[k] = v
+        }
     }
+    
+    if let right = right {
+        for (k, v) in right {
+            map[k] = v
+        }
+    }
+    
+    return map
 }
+
