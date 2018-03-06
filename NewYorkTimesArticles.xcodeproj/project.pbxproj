@@ -24,7 +24,6 @@
 		B3750CAF1EC1B54E00765E42 /* Dictionary+KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAC1EC1B54E00765E42 /* Dictionary+KeyValue.swift */; };
 		B3750CB01EC1B54E00765E42 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAD1EC1B54E00765E42 /* String+URL.swift */; };
 		B3750CB11EC1B54E00765E42 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CAE1EC1B54E00765E42 /* Utils.swift */; };
-		B3750CBE1EC1B77800765E42 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CBD1EC1B77800765E42 /* String+Localized.swift */; };
 		B3750CC21EC1B7FD00765E42 /* ArticlesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CC11EC1B7FD00765E42 /* ArticlesProvider.swift */; };
 		B3750CC51EC1BB2D00765E42 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CC41EC1BB2D00765E42 /* Article.swift */; };
 		B3750CC71EC1BED900765E42 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3750CC61EC1BED900765E42 /* Date+String.swift */; };
@@ -51,6 +50,8 @@
 		B389CA12204C1E8400691C99 /* HeaderManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA11204C1E8400691C99 /* HeaderManaging.swift */; };
 		B389CA14204C1F4600691C99 /* DefaultHeaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA13204C1F4600691C99 /* DefaultHeaderManager.swift */; };
 		B389CA16204C329200691C99 /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA15204C329200691C99 /* PresentableError.swift */; };
+		B389CA18204F46C800691C99 /* Data+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA17204F46C800691C99 /* Data+Json.swift */; };
+		B389CA1A204F4B3300691C99 /* TranslationsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389CA19204F4B3200691C99 /* TranslationsKey.swift */; };
 		B3905A461EC5DFCE00206CC4 /* DefaultNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A451EC5DFCE00206CC4 /* DefaultNetworkService.swift */; };
 		B3905A481EC5E14600206CC4 /* NetworkingTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A471EC5E14600206CC4 /* NetworkingTools.swift */; };
 		B3905A4A1EC6119C00206CC4 /* SuccessSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3905A491EC6119C00206CC4 /* SuccessSerializing.swift */; };
@@ -93,7 +94,6 @@
 		B3750CAE1EC1B54E00765E42 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B3750CB21EC1B55600765E42 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3750CB51EC1B66000765E42 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		B3750CBD1EC1B77800765E42 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		B3750CC11EC1B7FD00765E42 /* ArticlesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesProvider.swift; sourceTree = "<group>"; };
 		B3750CC41EC1BB2D00765E42 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		B3750CC61EC1BED900765E42 /* Date+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 		B389CA11204C1E8400691C99 /* HeaderManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderManaging.swift; sourceTree = "<group>"; };
 		B389CA13204C1F4600691C99 /* DefaultHeaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeaderManager.swift; sourceTree = "<group>"; };
 		B389CA15204C329200691C99 /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
+		B389CA17204F46C800691C99 /* Data+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Json.swift"; sourceTree = "<group>"; };
+		B389CA19204F4B3200691C99 /* TranslationsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationsKey.swift; sourceTree = "<group>"; };
 		B3905A451EC5DFCE00206CC4 /* DefaultNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkService.swift; sourceTree = "<group>"; };
 		B3905A471EC5E14600206CC4 /* NetworkingTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTools.swift; sourceTree = "<group>"; };
 		B3905A491EC6119C00206CC4 /* SuccessSerializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessSerializing.swift; sourceTree = "<group>"; };
@@ -261,9 +263,9 @@
 			children = (
 				B3750CAC1EC1B54E00765E42 /* Dictionary+KeyValue.swift */,
 				B3750CAD1EC1B54E00765E42 /* String+URL.swift */,
-				B3750CBD1EC1B77800765E42 /* String+Localized.swift */,
 				B3750CC61EC1BED900765E42 /* Date+String.swift */,
 				B3750CD81EC1C82C00765E42 /* UITableViewCell+ReusableIdentifier.swift */,
+				B389CA17204F46C800691C99 /* Data+Json.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				B3750CE21EC1D2E100765E42 /* Localizable.strings */,
+				B389CA19204F4B3200691C99 /* TranslationsKey.swift */,
 			);
 			path = Translations;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				TargetAttributes = {
 					B3750C7D1EC1B1F900765E42 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = L2G8Z3L5L6;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -478,6 +482,7 @@
 				B33289AC1EC9A394003C5ECF /* NYTError.swift in Sources */,
 				B3750CC71EC1BED900765E42 /* Date+String.swift in Sources */,
 				B36B36831ED9AD3C004A4F5E /* AppCoordinator.swift in Sources */,
+				B389CA18204F46C800691C99 /* Data+Json.swift in Sources */,
 				B389C9FA204AE45A00691C99 /* RequestProcessor.swift in Sources */,
 				B36B36851ED9AFE3004A4F5E /* ArticleListCoordinator.swift in Sources */,
 				B366B3891ECAFE4E00742C35 /* ArticlesDetailsViewModel.swift in Sources */,
@@ -490,7 +495,6 @@
 				B3750CDB1EC1CBA400765E42 /* ArticleListViewController.swift in Sources */,
 				B3905A481EC5E14600206CC4 /* NetworkingTools.swift in Sources */,
 				B3750CCA1EC1C0ED00765E42 /* ArticlesListViewModel.swift in Sources */,
-				B3750CBE1EC1B77800765E42 /* String+Localized.swift in Sources */,
 				B3C3899E1EC44E140024829B /* JsonInitializable.swift in Sources */,
 				B366B3861ECAFB5D00742C35 /* ArticlesDetailsView.swift in Sources */,
 				B3750CCE1EC1C12300765E42 /* ArticlesListViewModelDelegate.swift in Sources */,
@@ -516,6 +520,7 @@
 				B3750C821EC1B1F900765E42 /* AppDelegate.swift in Sources */,
 				B3750CD91EC1C82C00765E42 /* UITableViewCell+ReusableIdentifier.swift in Sources */,
 				B3750CA81EC1B54200765E42 /* RequestTargetType.swift in Sources */,
+				B389CA1A204F4B3300691C99 /* TranslationsKey.swift in Sources */,
 				B366B3831ECAF54E00742C35 /* ArticlesDetailsViewController.swift in Sources */,
 				B389CA14204C1F4600691C99 /* DefaultHeaderManager.swift in Sources */,
 				B389CA08204AF3CF00691C99 /* NYTRouter.swift in Sources */,
@@ -674,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L2G8Z3L5L6;
 				INFOPLIST_FILE = NewYorkTimesArticles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ssowinski.NewYorkTimesArticles;
@@ -687,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L2G8Z3L5L6;
 				INFOPLIST_FILE = NewYorkTimesArticles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ssowinski.NewYorkTimesArticles;

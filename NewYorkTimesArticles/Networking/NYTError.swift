@@ -7,14 +7,10 @@
 //
 
 import Foundation
-//TODO: removed unneeded
+
 enum NYTError: Error {
     case timedOut
     case offline
-    case unknown
-    case jsonMapping
-    case noDataInResponse
-    case jsonParsing
 
     case invalidAuthentication
     case outdatedVersionOfApp
@@ -24,16 +20,16 @@ enum NYTError: Error {
 extension NYTError: PresentableError {
 
     var title: String {
-        return "error_alert_title".localize
+        return TKey.errorAlertTitle.localized
     }
     
     var message: String {
         switch self {
-        case .offline: return "not internet"
-        case .invalidAuthentication: return "invalid_authentication_alert_message".localize
-        case .outdatedVersionOfApp: return "outdated_version_of_app_alert_message".localize
-        case .unknownApiError: return "unknown_api_error_alert_message".localize
-        default: return ""
+        case .offline: return TKey.notInternetAlertMessage.localized
+        case .timedOut: return TKey.timedOutAlertMessage.localized
+        case .invalidAuthentication: return TKey.invalidAuthenticationAlertMessage.localized
+        case .outdatedVersionOfApp: return TKey.outdatedVersionOfAppAlertMessage.localized
+        case .unknownApiError: return TKey.unknownApiErrorAlertMessage.localized
         }
     }
     

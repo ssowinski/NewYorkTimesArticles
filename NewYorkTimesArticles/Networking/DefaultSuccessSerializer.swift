@@ -12,7 +12,7 @@ struct DefaultSuccessSerializer: SuccessSerializing {
 
     func toObject<T: JsonInitializable>(fromData data: Data?, nestedObjPath path: String?) -> T? {
         
-        guard let data = data, let rootJson = NetworkingTools.getJson(data) as? Json else { return nil }
+        guard let data = data, let rootJson = data.json as? Json else { return nil }
         
         if let path = path, !path.isEmpty {
             guard let nestedNodeJson = rootJson.value(forPath: path) as? Json else { return nil }
@@ -28,11 +28,11 @@ struct DefaultSuccessSerializer: SuccessSerializing {
         var tmpJsonArray: [Json] = []
         
         if let path = path, !path.isEmpty {
-            guard let rootJson = NetworkingTools.getJson(data) as? Json, let nestedJsonsArray = rootJson.value(forPath: path) as? Array<Json> else { return [] }
+            guard let rootJson = data.json as? Json, let nestedJsonsArray = rootJson.value(forPath: path) as? Array<Json> else { return [] }
             tmpJsonArray = nestedJsonsArray
             
         } else {
-            guard let rootJsonArray = NetworkingTools.getJson(data) as? Array<Json> else { return [] }
+            guard let rootJsonArray = data.json as? Array<Json> else { return [] }
             tmpJsonArray = rootJsonArray
         }
         

@@ -38,7 +38,7 @@ struct NYTErrorSerializer: ErrorSerializing {
     }
     
     private func fromData(_ data: Data) -> NYTError {
-        guard let json = NetworkingTools.getJson(data) as? Json else {
+        guard let json = data.json as? Json else {
             return .unknownApiError
         }
         
