@@ -56,7 +56,7 @@ class ArticleListViewController: UIViewController, AlertPresenting {
         articlesLisitView?.tableView.dataSource = self
         articlesLisitView?.tableView.delegate = self
         articlesLisitView?.refreshControl.addTarget(self, action: #selector(fetchArticles), for: .valueChanged)
-        navigationItem.title = "articles_list_title".localize
+        navigationItem.title = TKey.articlesListTitle.localized
         
     }
     

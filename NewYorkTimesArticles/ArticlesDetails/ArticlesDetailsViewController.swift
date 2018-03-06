@@ -48,7 +48,7 @@ class ArticlesDetailsViewController: UIViewController {
     }
     
     private func configureSelf() {
-        navigationItem.title = "articles_details_title".localize
+        navigationItem.title = TKey.articlesDetailsTitle.localized
     }
 
     private func setLabel() {
