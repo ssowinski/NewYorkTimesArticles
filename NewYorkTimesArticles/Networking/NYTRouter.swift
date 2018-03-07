@@ -28,5 +28,5 @@ extension NYTRouter {
 }
 
 struct NYTRouterConst {
-    static let apiKey: String = "API-KEY"
+    static let apiKey: String = "626174f2fb5b4ed59edc1534ec964861"
 }

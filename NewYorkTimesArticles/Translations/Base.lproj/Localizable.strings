@@ -6,7 +6,7 @@
   Copyright © 2017 Sławomir Sowiński. All rights reserved.
 */
 
-"articles_list_title" = "NewYorkTimes Articles";
+"articles_list_title" = "iPhone in NYT";
 "articles_details_title" = "Articles details";
 "error_alert_title" = "Error";
 "invalid_authentication_alert_message" = "Invalid authentication credentials.";

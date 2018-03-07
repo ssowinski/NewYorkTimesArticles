@@ -1,6 +1,6 @@
 # NewYorkTimes Articles - MVVM and Coordinator Pattern.
 
-In this project I'm going to use only apple frameworks, without any external libraries.
+In this project I'm going to use only apple frameworks, without any external libraries. The aim of the project is to present the application architecture.
 In real life project I recommend to use Cocoapods, in this kind of apps very helpfull are: [Alamofire](https://github.com/Alamofire/Alamofire), [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON), [Reachability](https://github.com/ashleymills/Reachability.swift) etc.
 
 ## What is a coordinator?
@@ -75,11 +75,11 @@ When you define a protocol extension, you can specify constraints that conformin
 
 
 ```
-protocol ErrorPresenting {
+protocol AlertPresenting {
     func showAlert(_ title: String, message: String)
 }
 
-extension ErrorPresenting where Self: UIViewController {
+extension AlertPresenting where Self: UIViewController {
 
     func showAlert(_ title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

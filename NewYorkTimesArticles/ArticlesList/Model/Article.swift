@@ -13,20 +13,13 @@ struct Article {
     let snippet: String
     let pubDate: Date?
     let sectionName: String
-    
-    fileprivate struct ArticleApiKeys {
-        static let webUrl = "web_url"
-        static let snippet = "snippet"
-        static let pubDate = "pub_date"
-        static let sectionName = "section_name"
-    }
 }
 
 extension Article: JsonInitializable {
     init?(json: Json) {
-        webUrl = URL(string: json.stringValue(ArticleApiKeys.webUrl))
-        snippet = json.stringValue(ArticleApiKeys.snippet)
-        pubDate = json.stringValue(ArticleApiKeys.pubDate).dateFromISO8601
-        sectionName = json.stringValue(ArticleApiKeys.sectionName)
+        webUrl = URL(string: json.stringValue("web_url"))
+        snippet = json.stringValue("snippet")
+        pubDate = json.stringValue("pub_date").dateFromISO8601
+        sectionName = json.stringValue("section_name")
     }
 }

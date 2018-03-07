@@ -24,7 +24,7 @@ class ArticlesListView: UIView {
     
     // MARK: -Properties
     let tableView = UITableView()
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     let refreshControl: UIRefreshControl = UIRefreshControl()
     
     
