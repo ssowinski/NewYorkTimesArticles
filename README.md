@@ -65,11 +65,9 @@ To avoid delegate form child to parent coordinator, I add week refernce to paren
 
 
 
-## Protocols 
+## Protocol Extensions with constraints
 
 > You can use protocol extensions to provide a default implementation to any method or computed property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension.
-
-### Adding Constraints to Protocol Extensions
 
 When you define a protocol extension, you can specify constraints that conforming types must satisfy before the methods and properties of the extension are available (using a generic where clause)
 
@@ -92,20 +90,32 @@ extension AlertPresenting where Self: UIViewController {
 ```
 
 
-## Localization
+## Type-safe approach to localization
 
-1. In Project/Info/Localizations we shoud have selected Use Base Internationalization 
-2. In Project/Info/Localizations add Polish 
+#### Standard approach
+1. In Project/Info/Localizations we shoud have selected Use Base Internationalization
+2. In Project/Info/Localizations add Polish
 3. Create new Strings File Localizable.strings
 4. Select new file and in File inspector (right panel) select Locacize... and add Polish
-5. Add key-value "tweet_list_title" = "Lista tweet-ów"; 
+5. Add key-value "articles_list_title" = "iPhone in NYT";
 6. Use NSLocalizedString("tweet_list_title", comment: "")
-7. Or create extension 
 
+#### Enum with keys
+Each case is associated to a specific key of our strings file.
 ```
-extension String {
-    var localize: String {
-        return NSLocalizedString(self, comment: "")
+enum TKey: String {
+    case articlesListTitle = "articles_list_title"
+    case articlesDetailsTitle = "articles_details_title"
+}
+
+extension TKey {
+    var localized: String {
+        return NSLocalizedString(self.rawValue, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
 }
+```
+
+Usage
+```
+navigationItem.title = TKey.articlesListTitle.localized
 ```
