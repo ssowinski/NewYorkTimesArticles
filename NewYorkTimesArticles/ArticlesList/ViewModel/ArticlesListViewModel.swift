@@ -23,7 +23,7 @@ class ArticlesListViewModel: ArticlesListViewModelType {
     func fetchArticles() {
         delegate?.startActivityIndicator()
         
-        articleProvider.fetchArticles { [weak self] (result: Result<[Article]>) in
+        articleProvider.fetchArticles(query: "iphone") { [weak self] (result: Result<[Article]>) in
             self?.delegate?.stopActivityIndicator()
             
             switch result {
@@ -32,16 +32,13 @@ class ArticlesListViewModel: ArticlesListViewModelType {
                 self?.delegate?.didFinishFetchingDataWithSuccess()
             case .failure(let error):
                 self?.articles = []
-                if let nytError = error as? NYTError {
-                    self?.delegate?.didFinishFetchingDataWithError(errorTitle: nytError.alertTitle, errorMessage: nytError.alertMessage)
-                }
+                self?.delegate?.didFinishFetchingDataWithError(error: error)
             }
         }
     }
     
     func dataForCell(forIndexPath indexPath: IndexPath) -> ArticleCellAdapter? {
-        guard indexPath.row < articles.count else { return nil }
-        let article = articles[indexPath.row]
+        guard let article = articles[safe: indexPath.row] else { return nil }
         return ArticleCellAdapter(article: article)
     }
     
@@ -50,8 +47,7 @@ class ArticlesListViewModel: ArticlesListViewModelType {
     }
     
     func urlForCell(forIndexPath indexPath: IndexPath) -> URL? {
-        guard indexPath.row < articles.count else { return nil }
-        return articles[indexPath.row].webUrl
+        return articles[safe: indexPath.row]?.webUrl
     }
 
 }

@@ -13,5 +13,5 @@ protocol ArticlesListViewModelDelegate: class {
     func stopActivityIndicator()
     
     func didFinishFetchingDataWithSuccess()
-    func didFinishFetchingDataWithError(errorTitle: String, errorMessage: String) 
+    func didFinishFetchingDataWithError(error: Error) 
 }

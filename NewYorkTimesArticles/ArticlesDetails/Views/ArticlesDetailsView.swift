@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class ArticlesDetailsView: UIView {
     
@@ -22,29 +23,35 @@ class ArticlesDetailsView: UIView {
     }
     
     // MARK: -Properties
-    let urlLabel: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
-        label.numberOfLines = 10
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = UIColor.blue
-        return label
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
+    let webView: WKWebView = {
+        let webConfiguration = WKWebViewConfiguration()
+        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        return webView
     }()
     
-    
     // MARK: -Private functions
+    private func configureSelf() {
+        self.backgroundColor = .black
+    }
+    
     private func addSubviews() {
-        self.backgroundColor = UIColor.white
-        self.addSubview(urlLabel)
+        self.addSubview(webView)
+        webView.addSubview(activityIndicator)
     }
     
     private func setupLayout() {
-        urlLabel.translatesAutoresizingMaskIntoConstraints = false
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            //urlLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            urlLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            urlLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
-            urlLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)
+            webView.leftAnchor.constraint(equalTo: leftAnchor),
+            webView.rightAnchor.constraint(equalTo: rightAnchor),
+            webView.topAnchor.constraint(equalTo: topAnchor),
+            webView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             ])
     }
 }

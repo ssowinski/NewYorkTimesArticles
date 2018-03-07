@@ -14,10 +14,14 @@ class Coordinator {
     
     weak var parentCoordinator: Coordinator?
     weak var navigationController: UINavigationController?
-    
-    init(navigationController: UINavigationController?, parentCoordinator: Coordinator?) {
+    weak var presentingViewController: UIViewController?
+    weak var tabBarController: UITabBarController?
+
+    init(navigationController: UINavigationController?, parentCoordinator: Coordinator?, presentingViewController: UIViewController? = nil, tabBarController: UITabBarController? = nil) {
         self.navigationController = navigationController
         self.parentCoordinator = parentCoordinator
+        self.presentingViewController = presentingViewController
+        self.tabBarController = tabBarController
     }
     
     func addChildCoordinator(_ childCoordinator: Coordinator) {
@@ -26,8 +30,14 @@ class Coordinator {
     
     func removeChildCoordinator(_ childCoordinator: Coordinator) {
         self.childCoordinators = self.childCoordinators.filter { $0 !== childCoordinator }
-        //        if let index = childCoordinators.index(where: { $0 === childCoordinator }) {
-        //            childCoordinators.remove(at: index)
-        //        }
+    }
+}
+
+extension Coordinator {
+    
+    func dismissAndRemove() {
+        self.presentingViewController?.dismiss(animated: true, completion: {
+            self.parentCoordinator?.removeChildCoordinator(self)
+        })
     }
 }

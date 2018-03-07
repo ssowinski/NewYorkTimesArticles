@@ -36,7 +36,7 @@ class ArticlesTableViewCell: UITableViewCell {
         let label = UILabel(frame: CGRect.zero)
         label.numberOfLines = 10
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = UIColor.white
+        label.textColor = .darkText
         label.minimumScaleFactor = 0.5
         return label
     }()
@@ -45,13 +45,13 @@ class ArticlesTableViewCell: UITableViewCell {
         let label = UILabel(frame: CGRect.zero)
         label.numberOfLines = 1
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.textColor = UIColor.red
+        label.textColor = .red
         label.minimumScaleFactor = 0.5
         return label
     }()
     
     private func configureSelf() {
-        backgroundColor = UIColor.gray
+        backgroundColor = .white
         selectionStyle = .none
         accessoryType = .disclosureIndicator
     }
@@ -79,7 +79,4 @@ class ArticlesTableViewCell: UITableViewCell {
             pubDateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
             ])
     }
-    
-
-    
 }

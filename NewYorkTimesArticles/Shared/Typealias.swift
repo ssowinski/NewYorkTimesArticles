@@ -7,5 +7,7 @@
 //
 
 typealias Parameters = [String: Any]
-typealias Headers = [String: Any]
+typealias Headers = [String: String]
 typealias Json = [String: Any]
+
+typealias Action = () -> ()

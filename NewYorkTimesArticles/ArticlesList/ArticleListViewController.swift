@@ -12,11 +12,11 @@ protocol ArticleListViewControllerDelegate: class {
     func didSelectArticle(_ url: URL)
 }
 
-class ArticleListViewController: UIViewController, ErrorPresenting {
+class ArticleListViewController: UIViewController, AlertPresenting {
     
     weak var delegate: ArticleListViewControllerDelegate?
     
-    fileprivate var viewModel: ArticlesListViewModelType
+    private var viewModel: ArticlesListViewModelType
     
     init(viewModel: ArticlesListViewModelType) {
         self.viewModel = viewModel
@@ -28,18 +28,8 @@ class ArticleListViewController: UIViewController, ErrorPresenting {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var searchText: String? {
-        didSet {
-            //            tweets.removeAll()
-            //            tableView?.reloadData()
-            //            fetch
-            //            title = searchText
-            
-        }
-    }
-    
-    fileprivate var articlesLisitView: ArticlesListView? {
-        return view as? ArticlesListView
+    private var articlesLisitView: ArticlesListView {
+        return view as! ArticlesListView
     }
     
     override func loadView() {
@@ -53,16 +43,16 @@ class ArticleListViewController: UIViewController, ErrorPresenting {
     }
     
     private func configureSelf() {
-        articlesLisitView?.tableView.dataSource = self
-        articlesLisitView?.tableView.delegate = self
-        articlesLisitView?.refreshControl.addTarget(self, action: #selector(fetchArticles), for: .valueChanged)
-        navigationItem.title = "articles_list_title".localize
+        articlesLisitView.tableView.dataSource = self
+        articlesLisitView.tableView.delegate = self
+        articlesLisitView.refreshControl.addTarget(self, action: #selector(fetchArticles), for: .valueChanged)
+        navigationItem.title = TKey.articlesListTitle.localized
         
     }
     
     @objc func fetchArticles() {
         viewModel.fetchArticles()
-        articlesLisitView?.refreshControl.endRefreshing()
+        articlesLisitView.refreshControl.endRefreshing()
     }
 }
 
@@ -96,20 +86,20 @@ extension ArticleListViewController: UITableViewDelegate {
 
 extension ArticleListViewController: ArticlesListViewModelDelegate {
     func stopActivityIndicator() {
-        articlesLisitView?.activityIndicator.stopAnimating()
+        articlesLisitView.activityIndicator.stopAnimating()
+        articlesLisitView.refreshControl.endRefreshing()
     }
     
     func startActivityIndicator() {
-        articlesLisitView?.activityIndicator.startAnimating()
-        
+        articlesLisitView.activityIndicator.startAnimating()
     }
     
     func didFinishFetchingDataWithSuccess() {
-        articlesLisitView?.tableView.reloadData()
+        articlesLisitView.tableView.reloadData()
     }
     
-    func didFinishFetchingDataWithError(errorTitle: String, errorMessage: String) {
-        articlesLisitView?.tableView.reloadData()
-        showAlert(errorTitle, message: errorMessage)
+    func didFinishFetchingDataWithError(error: Error) {
+        articlesLisitView.tableView.reloadData()
+        showError(error: error, refreshAction: nil)
     }
 }

@@ -15,7 +15,7 @@ class ArticleListCoordinator: Coordinator {
     }
     
     func start() {
-        let articleProvider = ArticleProvider(requestBuilder: NewYorkTimesRequestBuilder(), responseSerializer: SimpleResponseSerializer())
+        let articleProvider = ArticleProvider()
         let viewModel = ArticlesListViewModel(articleProvider: articleProvider)
         let viewController = ArticleListViewController(viewModel: viewModel)
         viewController.delegate = self

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol ArticlesDetailsViewModeling {
+    var request: URLRequest? { get }
+}
+
 struct ArticlesDetailsViewModel {
     
     private let url: URL?
@@ -16,8 +20,10 @@ struct ArticlesDetailsViewModel {
         self.url = url
     }
     
-    var urlToDisplay: String {
-        return url?.absoluteString ?? ""
+    var request: URLRequest? {
+        guard let url = self.url else {
+            return nil
+        }
+        return URLRequest(url: url)
     }
-
 }

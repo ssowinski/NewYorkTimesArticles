@@ -14,6 +14,6 @@ struct ArticleCellAdapter {
     
     init(article: Article) {
         self.snippet = article.snippet
-        self.pubDate = article.pubDate?.iso8601 ?? ""
+        self.pubDate = article.pubDate?.fullDateTime ?? ""
     }
 }
